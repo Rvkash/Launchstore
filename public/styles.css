@@ -30,13 +30,20 @@ body {
 
 /* HEADER */
 
-header {
+header, footer {
 	background-color: black;
 	color: white;
 
 	width: 100%;
 	padding: 32px 0;
 	text-align: center;
+}
+
+.container {
+	width: 90%;
+	max-width: 940px;
+	margin: 0 auto;
+
 }
 
 header div.container {
@@ -87,5 +94,15 @@ nav.primary ul {
 nav.primary ul li a {
 	display: flex;
 	align-items: center;
+	transition: 400ms;
+	color: white;
+}
+
+nav.primary ul li a i {
+	margin-right: 8px;
+}
+
+nav.primary ul li a:hover {
+	color: var(--primary-color)
 }
 
