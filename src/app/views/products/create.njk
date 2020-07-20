@@ -4,19 +4,22 @@
 
 <section class="container form">
 	<form method="POST" action='/products'>
-	
-	<div class="header">
-		<h3>Novo</h3>
 
-	</div>
+		<div class="header">
+			<h3>Cadastrar produto</h3>
 
-		<section class="details">
-			<h3>New Student</h3>
+		</div>
 
-			{% include 'students/fields.njk' %}
+			<div class="fields">
+			{% include 'products/fields.njk' %}
+				
+			</div>
+
+			 <button type="submit">Save</button>
 
 	</form>
 
+	   
 
 </section>
 
