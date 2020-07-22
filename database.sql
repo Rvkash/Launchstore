@@ -13,7 +13,7 @@ CREATE TABLE "products" (
 );
 
 CREATE TABLE "categories" (
-  "id" init PRIMARY KEY,
+  "id" SERIAL PRIMARY KEY,
   "name" text NOT NULL
 );
 
