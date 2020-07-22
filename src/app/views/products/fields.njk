@@ -14,10 +14,14 @@
 
 <div class="item">
 	<div>
-		Titulo
+		Nome
 	</div>
 	<div>
-		<input type="text" name="name" placeholder="titulo do anúncio" value="{{ product.name }}">
+		<input type="text" 
+		name="name" 
+		placeholder="titulo do anúncio" 
+		value="{{ product.name }}"
+		>
 	</div>
 </div>
 
@@ -50,12 +54,12 @@
 		Quantidade
 	</div>
 	<div>
-		<input type="number" name="quantity" placeholder="Estoque disponível" value="{{ product.name }}">
+		<input type="text" name="quantity" placeholder="Estoque disponível" value="{{ product.quantity }}">
 	</div>
 </div>
 
 
-<div class="item">
+{# <div class="item">
 	<div>
 		Disponível
 	</div>
@@ -66,7 +70,7 @@
 
 		<span>
 			<input type="radio" name="status" value="0"{% if product.status %}=="0" checked="checked" {% endif %}>Não
-		</span>
+		</span> #}
 
-	</div>
-</div>
+{# </div>
+</div> #}
