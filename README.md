@@ -7,8 +7,7 @@
 </h3>
 
 ###  :rocket: Launchstore
-
-
+ecomerce app for buying and selling items
 ### :book: Languages
 - HTML
 - CSS
