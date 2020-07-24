@@ -6,7 +6,14 @@
   LaunchStore ecommerce
 </h3>
 
-###  Launchstore
+###  :rocket: Launchstore
+
+
+### :book: Languages
+- HTML
+- CSS
+- Javascript
+
 
 -------------------------------------------------------------------------------------------
 
