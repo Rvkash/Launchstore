@@ -16,5 +16,5 @@ ecomerce app for buying and selling items
 
 -------------------------------------------------------------------------------------------
 
-Made by:blue_heart: by [Rafael Linhares](https://www.linkedin.com/in/rafael-linhares-js/)
+Made by :blue_heart: [Rafael Linhares](https://www.linkedin.com/in/rafael-linhares-js/)
 
