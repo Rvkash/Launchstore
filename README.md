@@ -7,7 +7,7 @@
 </h3>
 
 ###  :rocket: Launchstore
-ecomerce app for buying and selling items
+ecomerce app for buying and selling items, add items like eletronics, shoes, clothes...
 ### :book: Languages
 - HTML
 - CSS
