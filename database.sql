@@ -1,7 +1,7 @@
 CREATE TABLE "products" (
   "id" SERIAL PRIMARY KEY,
-  "category_id" int UNIQUE,
-  "user_id" int UNIQUE,
+  "category_id" int NOT NULL,
+  "user_id" int,
   "name" text NOT NULL,
   "description" text NOT NULL,
   "old_price" text,
@@ -21,9 +21,9 @@ CREATE TABLE "files" (
   "id" SERIAL PRIMARY KEY,
   "name" text,
   "path" text NOT NULL,
-  "product_id" int UNIQUE
+  "product_id" int 
 );
 
-ALTER TABLE "categories" ADD FOREIGN KEY ("id") REFERENCES "products" ("id");
+ALTER TABLE "products" ADD FOREIGN KEY ("category_id") REFERENCES "products" ("id");
 
-ALTER TABLE "products" ADD FOREIGN KEY ("id") REFERENCES "files" ("id");
+ALTER TABLE "files" ADD FOREIGN KEY ("product_id") REFERENCES "files" ("id");
