@@ -7,14 +7,15 @@
 </h3>
 
 ###  :rocket: Launchstore
-ecomerce app for buying and selling items
+ecomerce app for buying and selling items, add items like eletronics, shoes, clothes...
 ### :book: Languages
 - HTML
 - CSS
 - Javascript
+- Postgres
 
 
 -------------------------------------------------------------------------------------------
 
-Made by:blue_heart: by [Rafael Linhares](https://www.linkedin.com/in/rafael-linhares-js/)
+Made by :blue_heart: [Rafael Linhares](https://www.linkedin.com/in/rafael-linhares-js/)
 
