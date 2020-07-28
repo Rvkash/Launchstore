@@ -7,13 +7,15 @@ module.exports = {
     Category.all()
       .then(function (results) {
         const categories = results.rows
-        return res.render('products/create.njk', { categories })
+        return res.render('products/create.njk', {
+          categories
+        })
       }).catch(function (err) {
         throw new Error(err)
       })
   },
   async post (req, res) {
-  // Lógica salvar
+    // Lógica salvar
 
     const keys = Object.keys(req.body)
     for (key of keys) {
@@ -28,6 +30,20 @@ module.exports = {
     results = await Category.all()
     const categories = results.rows
 
-    return res.render('products/create.njk', { productId, categories })
+    return res.redirect(`products/${productId}`)
+  },
+  async edit (req, res) {
+    let results = await Product.find(req.params.id)
+    const product = results.rows[0]
+
+    if (!product) return res.send('Product not found!')
+
+    results = await Category.all()
+    const categories = results.rows
+
+    return res.render('products/edit.njk', {
+      product,
+      categories
+    })
   }
 }
