@@ -62,6 +62,36 @@
 	</div>
 </div>
 
+{% if  (product.status =='1') or (product.status ==0) %}
+<div class="item">
+    <div>
+       Disponivel
+    </div>
+    <div>
+        <span>
+            <input
+                type="radio"
+                name="gender"
+                value="M"
+                {% if product.status  == '1' %}
+                checked="checked"
+                {% endif %}>Sim
+        </span>
+
+        <span>
+            <input
+                type="radio"
+                name="gender"
+                value={% if product.status %}
+                =="0"
+                checked="checked"
+                {% endif %}>Não
+        </span>
+
+    </div>
+</div>
+{% endif %}
+
 
 {# <div class="item">
 	<div>
