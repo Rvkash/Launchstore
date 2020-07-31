@@ -2,7 +2,7 @@
 
 :root {
 	--primary-color: #fd951f;
-	--second-color: #1fd4fd;
+	--second-color: #1ca9c9;
 
 
 }
@@ -54,6 +54,23 @@ body {
 
 .button:hover {
 	background-color: #f38a13;
+}
+
+.button.delete {
+	background-color: lightgrey;
+
+}
+
+.button.edit {
+	background-color: #35d2f5;
+}
+
+.button.edit:hover {
+	background-color: #20b9dc;
+}
+
+.button.delete:hover {
+	background-color: rgba(223, 62, 63)
 }
 
 /* HEADER */
@@ -205,6 +222,20 @@ form .item select {
 
 form .item textarea {
 	min-height: 150px;
+
+}
+
+form .item span {
+	padding: 8px 16px;
+	background-color: var(--second-color);
+	border-radius: 16px;
+	color: #777;
+	margin-right: 4px;
+	margin-top: 8px;
+	display: inline-block;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 12px;
 
 }
 
