@@ -6,6 +6,12 @@
   LaunchStore ecommerce
 </h3>
 
+### Features
+- Add Product
+- Delete Product
+- List Product
+- Update Product
+
 ###  :rocket: Launchstore
 ecomerce app for buying and selling items, add items like eletronics, shoes, clothes...
 
