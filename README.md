@@ -3,7 +3,7 @@
 </h1>
 
 <h3 align="center" >
-  LaunchStore ecommerce
+  LaunchStore Ecommerce
 </h3>
 
 
