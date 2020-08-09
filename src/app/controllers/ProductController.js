@@ -1,10 +1,12 @@
 const Category = require('../models/Category')
 const Product = require('../models/Product')
-const { formatPrice } = require('../../lib/utils')
+const {
+  formatPrice
+} = require('../../lib/utils')
 
 module.exports = {
-  create (req, res) {
-    // Pegar categorias // promisses
+  create(req, res) {
+    // Pegar categorias // Promisses
     Category.all()
       .then(function (results) {
         const categories = results.rows
@@ -15,8 +17,8 @@ module.exports = {
         throw new Error(err)
       })
   },
-  async post (req, res) {
-    // Lógica salvar
+  async post(req, res) {
+    // Lógica salvar / async await
 
     const keys = Object.keys(req.body)
     for (key of keys) {
@@ -33,7 +35,7 @@ module.exports = {
 
     return res.redirect(`products/${productId}`)
   },
-  async edit (req, res) {
+  async edit(req, res) {
     let results = await Product.find(req.params.id)
     const product = results.rows[0]
 
@@ -50,7 +52,7 @@ module.exports = {
       categories
     })
   },
-  async put (req, res) {
+  async put(req, res) {
     const keys = Object.keys(req.body)
     for (key of keys) {
       if (req.body[key] == '') {
