@@ -55,7 +55,7 @@ body {
 }
 
 .button.delete {
-	background-color: lightgrey;
+	background-color: rgb(204, 7, 7)
 
 }
 
@@ -68,7 +68,7 @@ body {
 }
 
 .button.delete:hover {
-	background-color: rgba(223, 62, 63)
+	background-color: rgb(197, 34, 34)
 }
 
 /* HEADER */
@@ -225,9 +225,9 @@ form .item textarea {
 
 form .item span {
 	padding: 8px 16px;
-	background-color: var(--second-color);
+	background-color: var(--primary-color);
 	border-radius: 16px;
-	color: #777;
+	color: rgb(255, 255, 255);
 	margin-right: 4px;
 	margin-top: 8px;
 	display: inline-block;
