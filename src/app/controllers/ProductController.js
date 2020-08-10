@@ -1,8 +1,6 @@
 const Category = require('../models/Category')
 const Product = require('../models/Product')
-const {
-  formatPrice
-} = require('../../lib/utils')
+const { formatPrice } = require('../../lib/utils')
 
 module.exports = {
   create(req, res) {
@@ -52,7 +50,7 @@ module.exports = {
       categories
     })
   },
-  async put(req, res) {
+  async put(req, res) { 
     const keys = Object.keys(req.body)
     for (key of keys) {
       if (req.body[key] == '') {
@@ -60,7 +58,7 @@ module.exports = {
       }
     }
 
-    req.body.price = req.body.price.replace(/\D/g, '')
+    req.body.price = req.body.price.replace(/\D/g, "")
 
     if (req.body.old_price != req.body.price) {
       const oldProduct = await Product.find(req.body.id)
@@ -70,5 +68,10 @@ module.exports = {
     await Product.update(req.body)
 
     return res.redirect(`/products/${req.body.id}/edit`)
-  }
+  },
+  async delete(req, res) {
+    await Product.delete(req.body.id) 
+
+    return res.redirect('/products/create')
+  }  
 }
