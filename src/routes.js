@@ -14,6 +14,8 @@ routes.get('/', function (req, res) {
 
 routes.get('/products/create', ProductController.create)
 routes.get('/products/:id/edit', ProductController.edit)
+routes.delete('/products', ProductController.delete)
+
 
 routes.put('/products', ProductController.put)
 routes.post('/products', ProductController.post)
