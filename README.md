@@ -15,6 +15,7 @@ ecomerce app for buying and selling items, add items like eletronics, shoes, clo
 - Add Product
 - Delete Product
 - List Product
+- Upload photo
 - Update Product
 
 
