@@ -23,6 +23,7 @@ ecomerce app for buying and selling items, add items like eletronics, shoes, clo
 - HTML
 - CSS
 - Javascript
+- Nunjucks
 - Postgres
 
 
