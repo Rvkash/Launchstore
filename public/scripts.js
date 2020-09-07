@@ -18,9 +18,7 @@ const PhotosUpload = {
   preview: document.querySelector('#photos-preview'),
   uploadLimit: 6,
   handleFileInput(event) {
-    const {
-      files: fileList
-    } = event.target
+    const { files: fileList } = event.target
 
     if (PhotosUpload.hasLimit(event)) return 
 
@@ -44,7 +42,8 @@ const PhotosUpload = {
   },
   
   hasLimit(event) {
-    const {uploadLimit} = PhotosUpload
+    const { uploadLimit } = PhotosUpload
+    const { files: fileList} = event.target
 
     if (fileList.length > uploadLimit) {
       alert(`Envie no máximo ${uploadLimit} fotos`)
@@ -61,6 +60,14 @@ const PhotosUpload = {
 
     div.appendChild(image)
 
+    div.appendChild(PhotosUpload.getRemoveButton())
+
     return div
+  },
+  getRemoveButton() {
+    const button = document.createElement('i')
+    button.classList.add('material-icons')
+    button.innerHTML= "close"
+    return button 
   }
 }
