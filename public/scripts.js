@@ -15,43 +15,52 @@ const Mask = {
 }
 
 const PhotosUpload = {
+  preview: document.querySelector('#photos-preview'),
   uploadLimit: 6,
   handleFileInput(event) {
     const {
       files: fileList
     } = event.target
-    const {
-      uploadLimit
-    } = PhotosUpload
+
+    if (PhotosUpload.hasLimit(event)) return 
+
+      Array.from(fileList).forEach(file => {
+        const reader = new FileReader()
+
+        reader.onload = () => {
+          const image = new FileReader()
+
+          reader.onload = () => {
+            const image = new Image()
+            image.src = String(reader.result)
+
+            const div = PhotosUpload.getContainer(image)
+            PhotosUpload.preview.appendChild(div)
+          }
+
+          reader.readAsDataURL(file)
+        }
+      })
+  },
+  
+  hasLimit(event) {
+    const {uploadLimit} = PhotosUpload
 
     if (fileList.length > uploadLimit) {
       alert(`Envie no máximo ${uploadLimit} fotos`)
       event.preventDefault()
-      return
+      return true
     }
+     return false
+  },
+  getContainer(image) {
+    const div = document.createElement('div')
+    div.classList.add('photo')
 
-    Array.from(fileList).forEach(file => {
-      const reader = new FileReader()
+    div.onClick = () => alert('remover foto')
 
-      reader.onload = () => {
-        const image = new FileReader()
+    div.appendChild(image)
 
-        reader.onload = () => {
-          const image = new Image()
-          image.src = String(reader.result)
-
-          const div = document.createElement('div')
-          div.classList.add('photo')
-
-          div.onClick = () => alert('remover foto')
-
-          div.appendChild(image)
-
-          document.querySelector('#photos-preview').appendChild(div)
-        }
-
-        reader.readAsDataURL(file)
-      }
-    })
+    return div
   }
 }
