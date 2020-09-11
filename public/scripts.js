@@ -25,9 +25,6 @@ const PhotosUpload = {
       Array.from(fileList).forEach(file => {
         const reader = new FileReader()
 
-        reader.onload = () => {
-          const image = new FileReader()
-
           reader.onload = () => {
             const image = new Image()
             image.src = String(reader.result)
@@ -37,7 +34,6 @@ const PhotosUpload = {
           }
 
           reader.readAsDataURL(file)
-        }
       })
   },
   
