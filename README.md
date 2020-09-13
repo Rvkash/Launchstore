@@ -8,7 +8,7 @@
 
 
 ###  :rocket: Launchstore
-ecomerce app for buying and selling items, add items like eletronics, shoes, clothes
+ecomerce app for buying and selling items, add items.
 
 
 ### 💡 Features
