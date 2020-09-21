@@ -17,7 +17,7 @@ routes.get('/products/create', ProductController.create)
 routes.get('/products/:id/edit', ProductController.edit)
 
 routes.post('/products', multer.array("photos, 6"), ProductController.post)
-routes.put('/products', ProductController.put)
+routes.put('/products', multer.array("photos, 6"),  ProductController.put)
 routes.delete('/products', ProductController.delete)  
 
 
