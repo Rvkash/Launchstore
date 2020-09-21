@@ -15,7 +15,7 @@ ecomerce app for buying and selling items, add items.
 - Add Product
 - Delete Product
 - List Product
-- Upload photo
+- Upload photos
 - Update Product
 
 
@@ -25,6 +25,7 @@ ecomerce app for buying and selling items, add items.
 - Javascript
 - Nunjucks
 - Postgres
+
 
 
 -------------------------------------------------------------------------------------------
