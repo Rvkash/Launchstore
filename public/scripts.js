@@ -93,13 +93,26 @@ const PhotosUpload = {
     button.innerHTML= "close"
     return button 
   },
-  removePhoto(event) {  
-    const photoDiv = event.target.parentNode // <div class="photo">
+  removePhoto(event) {
+    const photoDiv = event.target.parentNode
     const photosArray = Array.from(PhotosUpload.preview.children)
     const index = photosArray.indexOf(photoDiv)
 
     PhotosUpload.files.splice(index, 1)
     PhotosUpload.input.files = PhotosUpload.getAllFiles()
+
+    photoDiv.remove()
+  },
+  removeOldPhoto(event) {
+    const photoDiv = event.target.parentNode
+
+    if (photoDiv.id) {
+        const removedFiles = document.querySelector('input[name="removed_files"')
+
+        if(removedFiles) {
+            removedFiles.value += `${photoDiv.id},`
+        }
+    }
 
     photoDiv.remove()
   }
