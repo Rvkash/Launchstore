@@ -61,6 +61,9 @@ async edit(req, res) {
 
     return res.render('products/edit', {product, categories, files})
 },
+show(req, res) {
+  return res.render("products/show.njk")
+},
 async put(req, res) {
   const keys = Object.keys(req.body)
 
