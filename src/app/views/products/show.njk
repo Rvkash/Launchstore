@@ -1,37 +1,45 @@
 {% extends "layout.njk" %}
 
 {% block content %}
-    <section class="product-single container">  
+<section class="product-single container">
 
-        <div class="gallery">
-            <img src="http://placehold.it/500x500?text=PRODUTO SEM FOTO" />
+    <div class="gallery">
+        <img src="http://placehold.it/500x500?text=PRODUTO SEM FOTO" />
+    </div>
+
+    <div class="info">
+        <h1>{{ product.name}}</h1>
+
+        <div class="published">
+            Publicado em {{ product.published.day}} ás {{ product.published.hour}}
         </div>
 
-        <div class="info">
-            <h1>Computador</h1>
-
-            <div class="published">
-                Publicado em 21/09 ás 21h
-            </div>
-
-            <div class="description">
-                Produto descrição
-            </div>
-
-            <div class="price-buy">
-                <div class="price">
-                R$ 99,99 
-
-                 <span class="old">R$ 89,90</span>
-                </div>
-
-               
-                <div class="buy">
-                    <button class="button">Comprar</button>
-                </div>
-            </div>
-
+        <div class="description">
+            {{ product.description}}
         </div>
 
-    </section>
+        <div class="price-buy">
+            <div class="price">
+                {{ product.price}}
+
+                {% if product.price !== product.oldPrice %}
+                <span class="old">{{product.oldPrice}}</span>
+                {% endif %}
+            </div>
+
+
+            <div class="buy">
+                {% if product.status == 0 %}
+                <p class="unavailable">Indisponível</p>
+                {% elseif product.quantity == 0 %}
+                <p class="unavailable">Fora de estoque</p>
+                {% else %}
+                <button class="button">Comprar</button>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+
+</section>
 {% endblock content %}
