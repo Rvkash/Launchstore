@@ -61,8 +61,27 @@ async edit(req, res) {
 
     return res.render('products/edit', {product, categories, files})
 },
-show(req, res) {
-  return res.render("products/show.njk")
+async show(req, res) {
+
+  let results = await Product.find(req.params.id) //get product
+  const product = results.rows[0]
+
+  if(!product) return res.send("Produto não encontrado")
+
+  const { day, hour, minutes, month } = date(product.updated_at)
+
+  product.published = {
+    day: `${day}/${month}`,
+    hour: `${hour}h${minutes}`,
+    minutes,
+    month
+  }
+
+  product.oldPrice = formatPrice(product.old_price)
+  product.price = formatPrice(product.price)
+
+
+  return res.render("products/show", { product })
 },
 async put(req, res) {
   const keys = Object.keys(req.body)
