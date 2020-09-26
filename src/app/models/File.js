@@ -2,7 +2,7 @@ const db = require('../../config/db')
 const fs = require('fs')
 
 module.exports = {
-  create(filename, path, product_id) {
+  create({filename, path, product_id}) {
     const query = `
     INSERT INTO files (
         name,
@@ -10,10 +10,10 @@ module.exports = {
         product_id,
      	) VALUES ($1, $2, $3)
       RETURNING id
-      `
+      `;
       
     const values = [
-      filename,
+      filename, 
       path,
       product_id,
     ]
@@ -25,12 +25,11 @@ module.exports = {
     try {
         const result = await db.query(`
             SELECT * FROM files
-            WHERE id = $1
-        `, [id])
+            WHERE id = $1`, [id])
 
         const file = result.rows[0]
 
-        fs.unlinksync(file.path)
+        fs.unlinkSync(file.path)
 
         return db.query(`
             DELETE FROM files
