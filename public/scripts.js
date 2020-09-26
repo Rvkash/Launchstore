@@ -117,3 +117,16 @@ const PhotosUpload = {
     photoDiv.remove()
   }
 }
+
+const ImageGallery = {
+  highlight: document.querySelector('.haççery .highlight > img'),
+  previews: document.querySelectorAll('.gallery-preview img'),
+  setImage(e) {
+    const { target } = e
+
+    ImageGallery.previews.forEach(preview => classList.remove('active'))
+    target.classList.add('active')
+
+    ImageGallery.highlight.src = target.src
+  }
+}
