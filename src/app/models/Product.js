@@ -1,6 +1,13 @@
 const db = require('../../config/db')
 
 module.exports = {
+  all() {
+    return db.query (`
+      SELECT * FROM products
+      ORDER BY updated_at DESC
+      
+    `)
+  },
   create(data) {
     const query = `
     INSERT INTO products (
@@ -37,14 +44,14 @@ module.exports = {
   update(data) {
     const query = `
       UPDATE products SET 
-      category_id=($1),
-      user_id=($2),
-      name=($3),
-      description=($4),
-      old_price=($5),
-      price=($6),
-      quantity=($7),
-      status=($8)
+        category_id=($1),
+        user_id=($2),
+        name=($3),
+        description=($4),
+        old_price=($5),
+        price=($6),
+        quantity=($7),
+        status=($8)
     WHERE id = $9
     `
 
