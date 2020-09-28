@@ -2,25 +2,24 @@ const express = require('express')
 const routes = express.Router()
 const multer = require('./app/middlewares/multer')
 const ProductController = require('./app/controllers/ProductController')
+const HomeController = require('./app/controllers/HomeController')
+
 
 // http: verbs
-// get: receber RESOURCE -> algo real
-// post: Criar ou salva RESOURCE COM DADOS ENVIADOS
-// put: atualizar um RESOURCE
-// delete: apagar um RESOURCE
+// get: get resource
+// post: create or save resource with data 
+// put: update a resource
+// delete: delete a resource
 
-routes.get('/', function (req, res) {
-  return res.render('layout.njk')
-})
+routes.get('/', HomeController.index)
+
 
 routes.get('/products/create', ProductController.create)
 routes.get('/products/:id', ProductController.show)
 routes.get('/products/:id/edit', ProductController.edit)
 
-routes.post('/products', multer.array("photos", 6), ProductController.post)
-routes.put('/products', multer.array("photos", 6), ProductController.put)
-
-
+routes.post('/products', multer.array("photos", 6), ProductController.post) //postar
+routes.put('/products', multer.array("photos", 6), ProductController.put)   //att
 routes.delete('/products', ProductController.delete)  
 
 
