@@ -3,7 +3,7 @@
 {% block content %}
 
 <section class="container form">
-	<form method="POST" action='/products?_method=PUT' enctype="multipart/form-data">
+	<form method="POST" action="/products?_method=PUT" enctype="multipart/form-data">
 
 		<div class="header">
 			<h3>Editar Produto {{productId}}</h3>
@@ -13,13 +13,13 @@
 			{% include 'products/fields.njk' %}
 			<input type="hidden" name="id" value={{product.id}}>
 
-		</div>
+		</div>	
 
 		<button class="button edit" type="submit">Atualizar</button>
 
 	</form>
 
-	<form id="form-delete" method="post" action="/products?_method=DELETE" >
+	<form id="form-delete" method="POST" action="/products?_method=DELETE" >
 		<input type="hidden" name="id" value="{{product.id}}">
 		<button class="button delete" type="submit">Deletar</button>
 	</form>
@@ -36,6 +36,4 @@
 		}
 	})
 </script>
-
-
 {% endblock content %}
