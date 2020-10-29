@@ -2,7 +2,7 @@ const express = require('express')
 const routes = express.Router()
 
 // const SessionController = require('../app/controllers/SessionController')
-// const UserController = require('../app/controllers/UserController')
+const UserController = require('../app/controllers/UserController')
 
 
 // //Login Logout
@@ -17,7 +17,7 @@ const routes = express.Router()
 
 // //user register
 
-// routes.get('/register', UserController.registerForm)
+routes.get('/register', UserController.registerForm)
 // routes.post('/register', UserController.register)
 
 // routes.get('/', UserController.show)
