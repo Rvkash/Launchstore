@@ -14,7 +14,6 @@ module.exports = {
                  `${req.protocol}://${req.headers.host}${file.path.replace("public", "")}`)
 
             return files[0]
-
         }
 
         const productsPromise = products.map(async product => {
