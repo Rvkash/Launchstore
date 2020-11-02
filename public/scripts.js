@@ -181,3 +181,21 @@ const Lightbox = {
 
   }
 }
+
+const Validate = {
+  apply(input, func) {
+     let results = Validate[func](input.value)
+     input.value = results.value
+
+     if (results.error)
+      alert("Error!")
+
+  },
+  isEmail(value) {
+    let error = null 
+    return {
+      error,
+      value
+    }
+  }
+}
