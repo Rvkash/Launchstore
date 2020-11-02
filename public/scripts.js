@@ -34,6 +34,14 @@ const Mask = {
 
     return value
 
+  },
+  cep(value) {
+    value = value.replace(/\D/g, "")
+    if(value.length > 8 ) 
+      value = value.slice(0, -1)
+      
+    value = value.replace(/(\d{5})(\d)/, "$1-$2")    
+    return value
   }
 }
 
