@@ -19,5 +19,5 @@ nunjucks.configure('src/app/views', {
 })
 
 server.listen(5001, function () {
-  console.log('Server ta on')
+  console.log('Server Online, Edições OK')
 })
