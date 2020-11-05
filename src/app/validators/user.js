@@ -1,12 +1,7 @@
 const User = require('../models/User')
 
-module.exports = {
-  registerForm(req, res) {
-    return res.render("users/register")
-  },
-  async post(req,res) {
+function post(req, res, next) {  
     const keys = Object.keys(req.body)
-
         for(let key of keys) {
             if(req.body[key] == '') {
                return res.send('Please, fill all the fields!')
@@ -25,6 +20,9 @@ module.exports = {
         if(password != passwordRepeat) 
           return res.send('Password incorreto')
 
-        return res.send('Correto!')
-     }
-  }
+          next()
+}
+
+modules.exports = {
+  post
+}
