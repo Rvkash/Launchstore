@@ -35,13 +35,13 @@ CREATE TABLE "users" (
   "password" text NOT NULL,
   "cpf_cnpj" text UNIQUE NOT NULL,
   "cep" text,
-  "adress" text,
+  "address" text,
   "created_at" timestamp DEFAULT (now()),
   "updated_at" timestamp DEFAULT (now())
 );
 
 -- Foreign Key 
-ALTER TABLE "products" ADD FOREIGN KEY ("users_id") REFERENCES "users" ("id")
+ALTER TABLE "products" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id")
 
 -- create procedure
 CREATE FUNCTION trigger_set_timestamp()
