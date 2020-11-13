@@ -1,24 +1,17 @@
 const User = require('../models/User')
 const { formatCep, formatCpfCnpj} = require('../../lib/utils')
 
-
 module.exports = {
-  async registerForm(req, res) {
+  registerForm(req, res) {
     return res.render("users/register")
   },
   async show (req,res) {
-    const { userId: id } = req.session
-
-    const user = await User.findOne({ where: id})
-
-    if (!user) return res.render("user/register", {
-      error: 'usuário não encontrado'
-    })
+    const { user } = req.session
 
     user.cpf_cnpj = formatCpfCnpj(user.cpf_cnpj)
     user.cep = formatCpfCnpj(user.cep)
 
-    return res.render("user/index", { user })
+    return res.render("users/index", { user })
   },
   async post(req, res) {
     const userId = await User.create(req.body)
@@ -26,5 +19,8 @@ module.exports = {
     req.session.userId = userId
 
     return res.redirect("/users")      
-    },
+  },
+  async update(req, res) {
+    
+  }
 }
