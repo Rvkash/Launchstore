@@ -1,28 +1,35 @@
 const User = require('../models/User')
-const { formatCep, formatCpfCnpj} = require('../../lib/utils')
+const { formatCep, formatCpfCnpj } = require('../../lib/utils')
 
 module.exports = {
   registerForm(req, res) {
     return res.render("users/register")
-  },
-  async show (req,res) {
-    const { user } = req.session
+},
+  async show (req, res) {  
+    try{
+    const { user } = req
 
     user.cpf_cnpj = formatCpfCnpj(user.cpf_cnpj)
-    user.cep = formatCpfCnpj(user.cep)
+    user.cep = formatCep(user.cep)
 
     return res.render("users/index", { user })
-  },
+    
+  } catch (err) {
+    console.error(err)
+  }
+},
   async post(req, res) {
     const userId = await User.create(req.body)
 
     req.session.userId = userId
 
     return res.redirect("/users")      
-  },
+},
   async update(req, res) {
     try{
+      const { user } = req
       let { name, email, cpf_cnpj, cep, address } = req.body
+
       cpf_cnpj = cpf_cnpj.replace(/\D/g, "")
       cep = cep.replace(/\D/g, "")
 
@@ -34,14 +41,17 @@ module.exports = {
         address
       })
 
-      return res.render("user/index", {
-        sucess: "Conta Atualizada com sucesso!"
+      return res.render("users/index", {
+        user: req.body,
+        success: "Conta Atualizada com sucesso!"
       })
 
     }catch (err) {
       console.error(err)
-      return res.render("user/index", {
+      return res.render("users/index", {
+        user: req.body,
         error: "Algum erro aconteceu!"
+        
       })
     }
   }
