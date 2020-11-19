@@ -57,11 +57,13 @@ async function update(req, res, next) {
   }
 
   const { id, password} = req.body
+
   if(!password) return res.render("users/index", {
     user: req.body,
-    error:"Coloque sua senha"
+    error: "Coloque sua senha"
   })
   const user = await User.findOne({ where: {id}})
+
   const passed = await compare(password, user.password)
   if(!passed) return res.render("users/index", {
     user: req.body,
