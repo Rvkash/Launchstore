@@ -14,12 +14,14 @@
   color: white;
   top: 0;
   opacity: 1;
-  background-color: #e74c3c;
 
   animation: hidemessage 400ms 5s ease-out forwards;
 }
 
-.messages .error {
-  background-color: #e74c3c;
+.messages.error {
+  background-color: #ec341f;
+}
 
+.messages.success {
+  background-color: #36e64e;
 }
