@@ -5,7 +5,6 @@ module.exports = {
     return db.query (`
       SELECT * FROM products
       ORDER BY updated_at DESC
-      
     `)
   },
   create(data) {
