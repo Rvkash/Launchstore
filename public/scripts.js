@@ -26,7 +26,7 @@ const Mask = {
         value = value.replace(/(\d{4})(\d)/, "$1-$2")
       
       } else { //cpf
-        value = value.replace(/(\d{2})(\d)/, "$1.$2")
+        value = value.replace(/(\d{3})(\d)/, "$1.$2")
         value = value.replace(/(\d{3})(\d)/, "$1.$2")
         value = value.replace(/(\d{3})(\d)/, "$1.$2")
         value = value.replace(/(\d{3})(\d)/, "$1-$2")
@@ -40,7 +40,7 @@ const Mask = {
     if(value.length > 8 ) 
       value = value.slice(0, -1)
       
-    value = value.replace(/(\d{5})(\d)/, "$1-$2")    
+    value = value.replace(/(\d{5})(\d)/, "$1-$2")
     return value
   }
 }
@@ -206,7 +206,6 @@ const Validate = {
   },
   isEmail(value) {
     let error = null
-
     const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
     if (!value.match(mailFormat))
@@ -219,14 +218,14 @@ const Validate = {
   },
   isCpfCnpj(value) {
     let error = null 
-
     const cleanValues = value.replace(/\D/g, "")
+
     if (cleanValues.length > 11 && cleanValues.length !== 14 ) {
       error = "CNPJ incorreto"
     }
     else if (cleanValues.length < 12 && cleanValues.length !== 11) {
       error = "CPF incoreto"
-    }
+    } 
 
     return {
       error,
