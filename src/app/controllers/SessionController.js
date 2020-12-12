@@ -59,5 +59,22 @@ module.exports = {
     }
 
     
+  },
+  resetForm(req, res) {
+    return res.render("session/password-reset", { token: req.query.token})
+  },
+  reset(req, res) {
+    const { email, password, passwordRepeat, token} = req.body
+
+    try{
+      
+
+    }catch(err) {
+      console.error(err)
+      return res.render("session/password-reset", {
+        error: "Erro inesperado, tente novamente!"
+      })
+
+    }
   }
 }
