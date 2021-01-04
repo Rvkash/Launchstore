@@ -129,8 +129,6 @@ header div.container a {
 	padding: 8px 16px;
 	border-radius: 2px;
 	font-size: 16px;
-
-
 }
 
 /* primary menu */
@@ -197,18 +195,16 @@ form .item>div:nth-child(1) {
 	margin-bottom: 8px;
 }
 
-form .item .input,
-form .item input[type="text"],
-form .item input[type="number"],
+form .item .input input,
 form .item textarea,
 form .item select {
-	width: 100%;
+width: 100%;
 
-	padding: 8px 16px;
-	box-shadow: 2px 2px -4px rgba(63, 63, .9);
-	border: 1px solid #d8d7d7;
-	border-radius: 4px;
-	font-size: 16px;
+padding: 8px 16px;
+box-shadow: 2px 2px -4px rgba(63, 63, .9);
+border: 1px solid #d8d7d7;
+border-radius: 4px;
+font-size: 16px;
 }
 
 form .item select {
@@ -594,14 +590,14 @@ form .item #photos-preview img {
   max-width: 500px;
 }
 
-.form input[name="email"],
+/* .form input[name="email"],
 .form input[name="password"],
 .form input[name="passwordRepeat"],
 .form input[name="cpf_cnpj"],
 .form input[name="cep"]
 .form input[name="address"] {
   max-width: 100%
-}
+} */
 
 /* Validate erros */
 
