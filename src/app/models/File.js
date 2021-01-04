@@ -10,7 +10,7 @@ module.exports = {
         product_id
      	) VALUES ($1, $2, $3)
       RETURNING id
-      `;
+    `;
       
     const values = [
       filename, 
