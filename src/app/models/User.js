@@ -53,7 +53,7 @@ module.exports = {
   let query = "UPDATE users set"
 
   Object.keys(fields).map((key, index, array) => {
-    if((index + 1) < array.lenght) {
+    if((index + 1) < array.length) {
       query = `${query}
         ${key} = '${fields[key]}',
       `
