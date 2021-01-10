@@ -65,9 +65,10 @@ module.exports = {
     return res.render("session/password-reset", { token: req.query.token})
   },
   async reset(req, res) {
-    const { user } = req.user
+    const  user  = req.user
 
-    const { password } = req.body
+    const { password, token } = req.body
+
     try{
       
       const newPassword = await hash(password, 8)
@@ -79,6 +80,7 @@ module.exports = {
 
       return res.render("session/login", {
         user: req.body,
+        token,
         success: "Senha atualizada, faça seu login"
       })
 
