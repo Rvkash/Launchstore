@@ -55,7 +55,7 @@ module.exports = {
       })
     }
 },
-async delete(req, res) {
+  async delete(req, res) {
   try {
     await User.delete(1)
     req.session.destroy()
